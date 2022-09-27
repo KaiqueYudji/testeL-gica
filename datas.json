@@ -1,0 +1,15 @@
+[
+    {
+        "id":"valueID",
+        "id_country":"EUA",
+        "id_plan":"Mega Pack",
+        "priority":"****"
+    },
+    {
+        "id":"valueID",
+        "id_country":"Grecia",
+        "id_plan":"Mega Pack",
+        "priority":"**"
+    }
+
+]
