@@ -3,18 +3,24 @@
         "id":"valueID",
         "id_country":"estados unidos",
         "id_plan":"megapack",
-        "priority":"****"
+        "priority":"true"
     },
     {
         "id":"valueID",
         "id_country":"estados unidos",
         "id_plan":"max",
-        "priority":"****"
+        "priority":"false"
     },
     {
         "id":"valueID",
         "id_country":"estados unidos",
         "id_plan":"topdestino",
+        "priority":"**"
+    },
+    {
+        "id":"valueID",
+        "id_country":"estados unidos",
+        "id_plan":"especial",
         "priority":"**"
     },
     {
@@ -28,7 +34,19 @@
         "id":"valueID",
         "id_country":"canada",
         "id_plan":"topdestino",
-        "priority":"****"
+        "priority":"true"
+    },
+    {
+        "id":"valueID",
+        "id_country":"canada",
+        "id_plan":"global",
+        "priority":"true"
+    },
+    {
+        "id":"valueID",
+        "id_country":"estados unidos",
+        "id_plan":"global",
+        "priority":"true"
     },
     {
         "id":"valueID",
