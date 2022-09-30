@@ -14,21 +14,19 @@ function FilteringPlans(destinyCountry){
               i2++;
               
               if(i2 === 1){
-                planObject[p.id_plan] = {[country]:p.priority};
+                planObject[p.id_plan] = {[country]:country};
               }else{
                   if(!planObject[p.id_plan]){
-                    planObject[p.id_plan] = {[country]:p.priority};
+                    planObject[p.id_plan] = {[country]:country};
                   }else{
-                      planObject[p.id_plan] = [planObject[p.id_plan]].concat(  {[country]:p.priority});  
+                      planObject[p.id_plan] = [planObject[p.id_plan]].concat({[country]:country});  
                   }
               } 
                           
             }); 
       }
- 
-      //I don´t need return aa array, but i want to use the operator spread so I'll return an array
-    let final = [planObject]
-    return final;
+     
+    return planObject;
 }
 
 
@@ -37,38 +35,39 @@ function FilteringPlans(destinyCountry){
 
 //PRECISA DE MELHORA
 const betterPlans = (plans,destinyCountry) => {
-  let betters = [];
-  let priorities = []
+  console.log(plans)
+  let qtdCountries = destinyCountry.length;
+  let qtdPlan = Object.keys(plans[0]).length;//this code is counting thr quantity of fields that I have in my object
+  let searchPlan = [];
+  
 
-    if(destinyCountry.length === 1){
-        plans.forEach(plan => {
-          betters.push({
-            priority:plan.priority.length,
-            id_plan:plan.id_plan
-          })
+  for(let i = 0; i < qtdPlan; i++){
+        if(qtdCountries === 2 && i === 2){
+            searchPlan.push(...(plans[0].filter(element => console.log(element) )))
+        }
+        
 
-          priorities.push(plan.priority.length)
-        })
+        else if(qtdCountries === 3)
+        searchPlan.push( ...(plans.filter(p => p[plans[i]] === destinyCountry[0]   &&   p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[2]  ) ) );
 
-        let theBest = Math.max(...priorities);
-        return betters.find(plan => plan.priority === theBest)
-    }  
+        else if(qtdCountries === 4)
+        searchPlan.push( ...(plans.filter(p =>p[plans[i]] === destinyCountry[0]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[2]    &&   p[plans[i]] === destinyCountry[3]  ) ) );
 
-    else{
-        plans.forEach(plan => {
-          betters.push({
-            priority:plan.priority.length,
-            id_plan:plan.id_plan
-          })
+        else if(qtdCountries === 5)
+        searchPlan.push( ...(plans.filter(p =>p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]   &&    p[plans[i]] === destinyCountry[1]) ) );
 
-          priorities.push(plan.priority.length)
-        })
+        else if(qtdCountries === 6)
+        searchPlan.push( ...(plans.filter(p =>p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]     &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]  ) ) );
 
-        let theBest = Math.max(...priorities);
-        return betters.find(plan => plan.priority === theBest)
-      }
+        else if(qtdCountries === 7)
+        searchPlan.push( ...(plans.filter(p => p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&   p[plans[i]] === destinyCountry[1]     &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]  ) ) );
 
- 
+        else if(qtdCountries === 8)
+        searchPlan.push( ...(plans.filter(p => p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&   p[plans[i]] === destinyCountry[1]     &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1]    &&    p[plans[i]] === destinyCountry[1] ) ) );
+  }
+       
+
+   return searchPlan;
 }
 
 
@@ -78,16 +77,13 @@ function guidedSelling(destinyCountry){
   let searchPlan = [];
 
       if(destinyCountry.length === 1){
-        searchPlan.push( ...(tb_eSim_roof.filter(plan => plan.id_country.indexOf(destinyCountry[0].toLowerCase()) !== -1 )) )
+        searchPlan.push(FilteringPlans(destinyCountry))
       }  
       else{
-        searchPlan.push( ...FilteringPlans(destinyCountry) );
+        searchPlan.push(FilteringPlans(destinyCountry));
       }                          
-
-  console.log(searchPlan);    
-  //let result = betterPlans(searchPlan,destinyCountry);
   
-
+  let result = betterPlans(searchPlan,destinyCountry);
 }
 
 guidedSelling(["Estados Unidos","Canada"])
