@@ -136,15 +136,18 @@ const betterPlans = (plans,destinyCountry) => {
 
 function guidedSelling(destinyCountry){
   let searchPlan = [];
+  let theBestPrice = new Array();
+  let values = new Array();
+
 
       if(destinyCountry.length === 1){
-        console.log(destinyCountry[0])
+        searchPlan.push(FilteringPlans(destinyCountry));
         console.log(tb_eSim_roof.find((item) => {return item.id_country === destinyCountry[0].toLowerCase()  &&  item.priority === true}));
       }  
       else{
           searchPlan.push(FilteringPlans(destinyCountry));
           let result = betterPlans(searchPlan,destinyCountry);console.log(result)
-          let theBestPrice = new Array();
+
 
           result.forEach(element => {
             theBestPrice.push(
@@ -152,13 +155,14 @@ function guidedSelling(destinyCountry){
             )
           })  
 
-          console.log( theBestPrice.find(p => Math.min(p.value)) );
+          theBestPrice.map(p => values.push(p.value));
+          console.log( theBestPrice.find(p => p.value === Math.min(...values)) ); 
       
       }                          
   
 }
 
-guidedSelling(["canada","estados unidos"])
+guidedSelling(["Alemanha","estados unidos"])
 
 
 

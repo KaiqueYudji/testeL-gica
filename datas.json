@@ -13,6 +13,12 @@
     },
     {
         "id":"valueID",
+        "id_country":"alemanha",
+        "id_plan":"max",
+        "priority":false
+    },
+    {
+        "id":"valueID",
         "id_country":"estados unidos",
         "id_plan":"topdestino",
         "priority":"**"
@@ -22,6 +28,12 @@
         "id_country":"estados unidos",
         "id_plan":"especial",
         "priority":"**"
+    },
+    {
+        "id":"valueID",
+        "id_country":"alemanha",
+        "id_plan":"especial",
+        "priority":true
     },
     {
         "id":"valueID",
@@ -38,6 +50,12 @@
     },
     {
         "id":"valueID",
+        "id_country":"alemanha",
+        "id_plan":"topdestino",
+        "priority":false
+    },
+    {
+        "id":"valueID",
         "id_country":"canada",
         "id_plan":"global",
         "priority":true
@@ -47,6 +65,12 @@
         "id_country":"estados unidos",
         "id_plan":"global",
         "priority":true
+    },
+    {
+        "id":"valueID",
+        "id_country":"alemanha",
+        "id_plan":"global",
+        "priority":false
     },
     {
         "id":"valueID",

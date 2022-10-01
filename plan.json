@@ -11,13 +11,27 @@
         "planName":"topdestino",
         "capacity":"1GB",
         "dataValidate":"30 dias",
-        "value":150.0
+        "value":188.0
       },
       {
         "id_plan":3,
         "planName":"global",
         "capacity":"1GB",
         "dataValidate":"30 dias",
-        "value":225.0
+        "value":299.0
+      },
+      {
+        "id_plan":3,
+        "planName":"max",
+        "capacity":"1GB",
+        "dataValidate":"30 dias",
+        "value":411.0
+      },
+      {
+        "id_plan":3,
+        "planName":"especial",
+        "capacity":"1GB",
+        "dataValidate":"30 dias",
+        "value":181.0
       }
 ]
