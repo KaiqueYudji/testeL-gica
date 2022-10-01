@@ -1,4 +1,5 @@
 const tb_eSim_roof = require("./datas.json")
+const valuePlans = require("./plan.json")
 
 
 function FilteringPlans(destinyCountry){
@@ -15,7 +16,9 @@ function FilteringPlans(destinyCountry){
               
               if(i2 === 1){
                 planObject[p.id_plan] = [country];
-              }else{
+              }
+
+              else{
                   if(!planObject[p.id_plan]){
                     planObject[p.id_plan] = [country];
                   }else{
@@ -135,17 +138,27 @@ function guidedSelling(destinyCountry){
   let searchPlan = [];
 
       if(destinyCountry.length === 1){
-        searchPlan.push(FilteringPlans(destinyCountry))
+        console.log(destinyCountry[0])
+        console.log(tb_eSim_roof.find((item) => {return item.id_country === destinyCountry[0].toLowerCase()  &&  item.priority === true}));
       }  
       else{
-        searchPlan.push(FilteringPlans(destinyCountry));
+          searchPlan.push(FilteringPlans(destinyCountry));
+          let result = betterPlans(searchPlan,destinyCountry);console.log(result)
+          let theBestPrice = new Array();
+
+          result.forEach(element => {
+            theBestPrice.push(
+              valuePlans.find(p => p.planName === element)
+            )
+          })  
+
+          console.log( theBestPrice.find(p => Math.min(p.value)) );
+      
       }                          
   
-  let result = betterPlans(searchPlan,destinyCountry);
-  console.log(result)
 }
 
-guidedSelling(["Estados unidos"])
+guidedSelling(["canada","estados unidos"])
 
 
 

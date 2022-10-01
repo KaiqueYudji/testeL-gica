@@ -1,0 +1,23 @@
+[
+    {
+      "id_plan":3,
+      "planName":"megapack",
+      "capacity":"1GB",
+      "dataValidate":"30 dias",
+      "value":150.0
+    },
+    {
+        "id_plan":4,
+        "planName":"topdestino",
+        "capacity":"1GB",
+        "dataValidate":"30 dias",
+        "value":150.0
+      },
+      {
+        "id_plan":3,
+        "planName":"global",
+        "capacity":"1GB",
+        "dataValidate":"30 dias",
+        "value":225.0
+      }
+]
