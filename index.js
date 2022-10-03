@@ -142,28 +142,34 @@ function guidedSelling(destinyCountry){
 
       if(destinyCountry.length === 1){
         searchPlan.push(FilteringPlans(destinyCountry));
-        console.log(tb_eSim_roof.find((item) => {return item.id_country === destinyCountry[0].toLowerCase()  &&  item.priority === true}));
+        let result = betterPlans(searchPlan,destinyCountry);
+        let betters = tb_eSim_roof.find((item) => {return (item.id_country === destinyCountry[0].toLowerCase()  &&  item.priority === true)});
+
+        if(!result.find(p => p === "max")){
+          return [betters.id_plan]
+        }else{
+          return ["max", betters.id_plan]
+        }
+        
       }  
       else{
           searchPlan.push(FilteringPlans(destinyCountry));
-          let result = betterPlans(searchPlan,destinyCountry);console.log(result)
+          let result = betterPlans(searchPlan,destinyCountry);
 
-
+           
           result.forEach(element => {
             theBestPrice.push(
               valuePlans.find(p => p.planName === element)
             )
           })  
 
+          
           theBestPrice.map(p => values.push(p.value));
-          console.log( theBestPrice.find(p => p.value === Math.min(...values)) ); 
-      
+          console.log( theBestPrice.filter(p => p.value === Math.min(...values)  ||  p.planName === "max") ); 
+           
       }                          
   
 }
 
-guidedSelling(["Alemanha","estados unidos"])
-
-
-
-
+let vl = guidedSelling(["canada","estados unidos"]);
+console.log(vl)

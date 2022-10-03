@@ -58,13 +58,13 @@
         "id":"valueID",
         "id_country":"canada",
         "id_plan":"global",
-        "priority":true
+        "priority":false
     },
     {
         "id":"valueID",
         "id_country":"estados unidos",
         "id_plan":"global",
-        "priority":true
+        "priority":false
     },
     {
         "id":"valueID",
