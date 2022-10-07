@@ -38,99 +38,32 @@ function FilteringPlans(destinyCountry){
 
 
 //PRECISA DE MELHORA
+
 const betterPlans = (plans,destinyCountry) => {
   let qtdCountries = destinyCountry.length;
-  let qtdPlan = Object.keys(plans[0]).length;//this code is counting thr quantity of fields that I have in my object
   let betterPlan = [];
-
-  for(let i = 0; i < qtdPlan; i++){
-
-
-            if(qtdCountries === 1 && i === 0){
-              Object.keys(...plans).forEach(cobertura => {
-            
-              if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1 )
-              betterPlan.push(cobertura)
-
-            })
-          }
-    
-
-          if(qtdCountries === 2 && i === 2){
-              Object.keys(...plans).forEach(cobertura => {
-            
-              if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1 && plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1 )
-              betterPlan.push(cobertura)
-
-            })
-          }
-          
-
-          else if(qtdCountries === 3 && i === 3){
-              Object.keys(...plans).forEach(cobertura => {
-            
-              if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1 )
-              betterPlan.push(cobertura)
-
-            })
-          }
+ 
+  let execut= ""
 
 
-          else if(qtdCountries === 4 && i === 4){
-            Object.keys(...plans).forEach(cobertura => {
-          
-            if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1 &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1 &&   plans[0][cobertura].indexOf(destinyCountry[3].toLowerCase()) !== -1 )
-            betterPlan.push(cobertura)
+       for(let i = 0; i < qtdCountries; i++){
+         execut += `plans[0][cobertura].indexOf(destinyCountry[${i}].toLowerCase()) !== -1 &&`;
+         
+         if(i === (qtdCountries - 1) ){
+         let request = execut.slice(0,-2);
 
-          })
-        }
-
-
-          else if(qtdCountries === 5 && i === 5){
-            Object.keys(...plans).forEach(cobertura => {
-          
-            if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[3].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[4].toLowerCase()) !== -1 )
-            betterPlan.push(cobertura)
-
-          })
-        }
-
-
-          else if(qtdCountries === 6 && i === 6){
-            Object.keys(...plans).forEach(cobertura => {
-          
-            if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[3].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[4].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[5].toLowerCase()) !== -1 )
-            betterPlan.push(cobertura)
-
-          })
-        }
-
-
-          else if(qtdCountries === 7 && i === 7){
-            Object.keys(...plans).forEach(cobertura => {
-          
-            if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[3].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[4].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[5].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[6].toLowerCase()) !== -1 )
-            betterPlan.push(cobertura)
-
-          })
-        }
-
-        
-          else if(qtdCountries === 8 && i === 8){
-            Object.keys(...plans).forEach(cobertura => {
-          
-            if(plans[0][cobertura].indexOf(destinyCountry[0].toLowerCase()) !== -1   &&   plans[0][cobertura].indexOf(destinyCountry[1].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[2].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[3].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[4].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[5].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[6].toLowerCase()) !== -1  &&   plans[0][cobertura].indexOf(destinyCountry[7].toLowerCase()) !== -1 )
-            betterPlan.push(cobertura)
-
-          })
-        }
-
-  }
+             Object.keys(...plans).forEach(cobertura => {
+                 if(eval(request)){
+                   betterPlan.push(cobertura);
+                 }
+               });
+         }
+         
+       }
        
-
+       
    return betterPlan;
-}
-
+ }
 
 
 
